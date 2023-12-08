@@ -28,6 +28,8 @@ class Input extends FormComponent
 
     public ?string $append;
 
+    public bool $required;
+
     public bool $errorless;
 
     public bool $spinner;
@@ -45,7 +47,8 @@ class Input extends FormComponent
         ?string $prepend = null,
         ?string $append = null,
         bool $errorless = false,
-        bool $spinner = false
+        bool $spinner = false,
+        bool $required = false
     ) {
         $this->borderless = $borderless;
         $this->shadowless = $shadowless;
@@ -60,6 +63,7 @@ class Input extends FormComponent
         $this->append     = $append;
         $this->errorless  = $errorless;
         $this->spinner    = $spinner;
+        $this->required   = $required;
     }
 
     protected function getView(): string
