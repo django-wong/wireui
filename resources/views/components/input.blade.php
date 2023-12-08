@@ -5,14 +5,23 @@
 <div class="@if($disabled) opacity-60 @endif">
     @if ($label || $cornerHint)
         <div class="flex {{ !$label && $cornerHint ? 'justify-end' : 'justify-between items-end' }} mb-1">
-            @if ($label)
-                <x-dynamic-component
-                    :component="WireUi::component('label')"
-                    :label="$label"
-                    :has-error="$hasError"
-                    :for="$id"
-                />
-            @endif
+            <div>
+                @if ($required)
+                    <span
+                        class="text-red-500 mr-1">
+                        *
+                    </span>
+                @endif
+
+                @if ($label)
+                    <x-dynamic-component
+                        :component="WireUi::component('label')"
+                        :label="$label"
+                        :has-error="$hasError"
+                        :for="$id"
+                    />
+                @endif
+            </div>
 
             @if ($cornerHint)
                 <x-dynamic-component
